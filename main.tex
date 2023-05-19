@@ -1,0 +1,207 @@
+\documentclass{beamer}
+\usetheme{metropolis}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\DeclarePairedDelimiterX{\inp}[2]{\langle}{\rangle}{#1, #2}
+
+\newcommand{\norma}[2][]{\ensuremath{\left\lVert #2 \right\rVert_{#1}}}
+\title{Operador Unitario, Autoadjunto y Normal}
+
+\newcommand{\C}{\mathbb{C}}
+
+\date{\today}
+\author{Roberto Alvarado}
+\institute{Universidad San Francisco de Quito}
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\begin{frame}{Autoadjunto}
+  Sea un operador linear acotado $T:H\longrightarrow H$ se le
+  llama autoadjunto o Hermitiano si 
+  $$T=T^{*}$$
+\end{frame} 
+
+\begin{frame}{Unitario}
+  Sea un operador linear acotado $T:H\longrightarrow H$ se le
+  llama unitario si T es biyectivo y
+  $$T^{*} = T^{-1}$$
+\end{frame}
+  
+\begin{frame}{Normal}
+  Sea un operador linear acotado $T:H\longrightarrow H$ se le
+  llama normal si
+  $$T^{*}T = TT^{*} $$
+\end{frame}
+
+\begin{frame}
+  Para el operador adjunto
+  $$\langle Tx,y\rangle = \langle x,T^{*}y\rangle$$
+  Cuando se trata de un operador autoadjunto
+  $$\langle Tx,y\rangle = \langle x,Ty\rangle$$
+\end{frame}
+
+\begin{frame}{Auto adjunto o Unitario implica Normal}
+  Autoadjunto
+  $$TT^{*}=T^{*}T$$
+  $$TT=TT$$
+  Unitario
+  $$TT^{*}=T^{*}T$$
+  $$TT^{-1}=T^{-1}T$$
+  $$I=I$$
+\end{frame}
+
+\begin{frame}{Normal no implica Autoadjunto o Unitario}
+  Sea $T=2iI$, el adjunto es $T^{*}=-2iT$, y el inverso es $T^{-1} =
+  -\frac{1}{2}iT$ cumple que
+    $$TT^{*}=T^{*}T$$
+    Pero 
+    $$T\neq T^{*}$$
+    Y a la vez
+    $$T\neq T^{-1}$$
+\end{frame}
+\begin{frame}{$\mathbb{C}^n$}
+  Producto interior definido
+  $$\inp{x}{y} = \xi_0\overline \delta_0+\dots+\xi_n\overline\delta_n$$
+  en notación matricial
+  $$\inp{x}{y} = x^T\overline y$$
+  Sea $T: \mathbb{C}^n\longrightarrow \mathbb{C}^n$ un operador linear
+  acotado. Teniendo una base para $\mathbb{C}^n$, tenemos que podemos
+  representar $T$ y $T^{*}$ como matrices cuadradas de dimensión n,
+  respectivamente A y B.
+\end{frame}
+
+\begin{frame}{Adjunto Hermitiano}
+  $$\inp{Tx}{y} = (Ax)^T\overline y = x^TA^T\overline y$$
+  $$\inp{x}{T^*y} = x^T\overline{By} $$
+  $$\inp{x}{T^*y} = x^T\overline{B}\overline y$$
+\end{frame}
+
+\begin{frame}{Autoadjunto}
+  $$x^TA^T\overline y= x^T\overline{B}\overline y$$
+  Entonces para que sea autoadjunto
+  $$B = \overline{A^{T}}$$
+\end{frame}
+
+\begin{frame}{Recuerdo de matrices}
+  Hermitiana si $\overline A^T = A$\\
+  Hermitiana asimétrica si $\overline A^T = A$\\
+  Unitaria si $\overline A^T = A^{-1}$\\
+  Normal si $A\overline A^T = \overline A^T A$\\
+  \vspace{1cm}
+  Simétrica si $ A^T = A$\\
+  Ortogonal si $A^T = A^{-1}$
+
+\end{frame}
+
+\begin{frame}{Operadores y Matrices en $\C^n$}
+  Matriz Hermitiana si T es auto-adjunta\\
+  Matriz Unitaria si T es unitario\\
+  Matriz Normal si es normal
+\end{frame}
+
+\begin{frame}{Operadores y Matrices en $\mathbb{R}^n$}
+  Matriz Simétrica si T es auto adjunta\\
+  Matriz Ortogonal si T es unitario\\
+\end{frame}
+
+\begin{frame}{Auto-adjunto}
+  Sea $T:H\longrightarrow H$ un operador linear acotado
+  \begin{itemize}
+    \item Si T es autoadjunto entonces $\inp{Tx}{x}$ es real $\forall
+      x \in H$
+      $$\overline{\inp{Tx}{x}} = \inp{x}{Tx} = \inp{Tx}{x}$$
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \begin{itemize}
+    \item Si H es complejo, y $\inp{Tx}{x}$ es real $\forall x \in H$
+      entonces el operador es autoadjunto
+      $$\inp{Tx}{x} = \overline{\inp{Tx}{x}} = \overline{\inp{x}{T^*x}}
+      = \inp{T^*x}{x}$$
+      $$T - T^* = 0$$
+  \end{itemize}
+\end{frame}
+\begin{frame}{Autoadjunto de un producto}
+  Sea S,T dos operadores lineales autoadjuntos, ST es autoadjunto si y
+  solo si 
+  $$ST=TS$$
+\end{frame}
+\begin{frame}{Demostración}
+  $$ ST =(ST)^* = T^*S^* = TS$$
+  $$ (ST)^* = T^*S^* = TS = ST $$
+\end{frame}
+
+\begin{frame}{Secuencia de operadores autoadjuntos}
+  Sea $(T_n)$ una secuencia de de operadores lineales autoadjuntos en
+  H. Supongamos que converge a T
+  $$T_n\longrightarrow T~~~~\norma{T_n-T}{}\longleftarrow 0$$
+  Entonces T es un operador linear acotado autoadjunto en H.
+\end{frame}
+\begin{frame}{Demostración}
+  Tenemos que demostrar que 
+  $$\norma{T-T^*}{} = 0$$
+  Sabemos que
+  $$\norma{T_n^*-T^*}{} = \norma{T_n-T}{}$$
+
+\end{frame} 
+\begin{frame}{Demostración}
+$$\norma{T-T^*}{}\leqq \norma{T-T_n}{} +\norma{T_n-T_n^*}{}+ \norma{T_n^*-T}{}$$
+
+$$=2\norma{T_n-T}{}\longrightarrow 0 $$
+$$\norma{T-T^*}{} = 0$$
+$$T=T^*$$
+\end{frame}
+
+\begin{frame}{Operador Unitario}
+  Sea U,V un operador unitario sobre H.
+  \begin{itemize}
+    \item U es isométrico 
+      $$\norma{Ux}{}^2=\inp{Ux}{Ux}=\inp{x}{U^*Ux} =
+      \inp{x}{Ix}=\norma{x}{}^2$$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Operador Unitario}
+  \begin{itemize}
+    \item $\norma{U}{}=1$ siendo $H\neq \{0\}$
+    \item $U^{-1}$ es unitario
+      $$(U^{-1})^* = U^{**} = U = (U^{-1})^{-1}$$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Operador Unitario}
+  \begin{itemize}
+    \item UV es unitario
+      UV es biyectivo
+      $$(UV)^* = V^*U^* = V^{-1}U^{-1}=(UV)^{-1}$$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Operador Unitario}
+  \begin{itemize}
+    \item U es normal
+      $$(UV)^* = V^*U^* = V^{-1}U^{-1}=(UV)^{-1}$$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Operador Unitario}
+  \begin{itemize}
+    \item Un operador linear acotado T en un espacio de Hilbert es
+      unitario si y solo si T es isométrico y sobreyectiva
+  \end{itemize}
+\end{frame}
+\begin{frame}{Demostración}
+  $$\inp{TT^*x}{x} = \inp{Tx}{Tx} = \inp{Ix}{x} $$
+  Entonces 
+  $$\inp{(T^*T-I)x}{x} =0$$
+  Entonces
+  $$TT^* = I$$
+  $\dots$
+  $$T^*=T^{-1}$$
+\end{frame}
+\end{document}
